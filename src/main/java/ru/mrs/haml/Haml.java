@@ -34,7 +34,7 @@ public class Haml {
                 if(!hamlFilenameKey.trim().isEmpty()){
                     htmlFilenameValue = ioFiles.get(hamlFilenameKey).toString();
                     result.add(
-                            ExternalProgramLauncher("haml",
+                            externalProgramLauncher("haml",
                             Paths.get(hamlInputDirPath, hamlFilenameKey).toString(),
                             Paths.get(hamlOutputDirPath, htmlFilenameValue).toString() )
                     );
@@ -46,7 +46,7 @@ public class Haml {
         return result;
     }
 
-    private Integer ExternalProgramLauncher(String program,String haml,String html){
+    private Integer externalProgramLauncher(String program, String haml, String html){
         ProcessBuilder procBuilder = new ProcessBuilder(program, haml, html);
 
         // перенаправляем стандартный поток ошибок на
